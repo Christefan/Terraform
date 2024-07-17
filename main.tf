@@ -21,7 +21,7 @@ resource "google_compute_network" "vpc1" {
 
     source_ranges = ["0.0.0.0/0"]
   }
-
+  project     = "jenkins-project-423708"
 }
 
 resource "google_compute_subnetwork" "my-custom-subnet1" {
