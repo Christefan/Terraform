@@ -7,7 +7,20 @@ provider "google" {
 
 resource "google_compute_network" "vpc1" {
   name                    = "my-custom-network-1"
-  auto_create_subnetworks = "false"
+  auto_create_subnetworks = true
+
+  # Aggiunta di regole del firewall per controllare il traffico di rete
+  firewall {
+    name    = "allow-http"
+    network = google_compute_network.vpc1.name
+
+    allow {
+      protocol = "tcp"
+      ports    = ["80", "443"]
+    }
+
+    source_ranges = ["0.0.0.0/0"]
+  }
 
 }
 
