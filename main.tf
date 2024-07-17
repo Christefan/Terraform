@@ -1,5 +1,5 @@
 provider "google" {
-  project = "your-project-id"
+  project = "jenkins-project-423708"
   credentials = file("path/to/your/google_credentials.json")
   region = "us-central1"
 }
